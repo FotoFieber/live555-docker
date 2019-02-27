@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo "Starting Docker Image for rtsp proxy"
+/usr/bin/live555ProxyServer rtsp://... rtsp://...

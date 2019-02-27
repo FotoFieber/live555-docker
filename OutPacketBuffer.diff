@@ -1,0 +1,12 @@
+diff -u -r live/proxyServer/live555ProxyServer.cpp live555/live/proxyServer/live555ProxyServer.cpp
+--- live/proxyServer/live555ProxyServer.cpp	2019-02-03 07:53:46.000000000 +0100
++++ live555/live/proxyServer/live555ProxyServer.cpp	2019-02-25 22:24:06.409809206 +0100
+@@ -58,7 +58,7 @@
+ int main(int argc, char** argv) {
+   // Increase the maximum size of video frames that we can 'proxy' without truncation.
+   // (Such frames are unreasonably large; the back-end servers should really not be sending frames this large!)
+-  OutPacketBuffer::maxSize = 100000; // bytes
++  OutPacketBuffer::maxSize = 1000000; // bytes
+ 
+   // Begin by setting up our usage environment:
+   TaskScheduler* scheduler = BasicTaskScheduler::createNew();

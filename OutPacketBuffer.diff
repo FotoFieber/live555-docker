@@ -1,6 +1,18 @@
-diff -u -r live/proxyServer/live555ProxyServer.cpp live555/live/proxyServer/live555ProxyServer.cpp
---- live/proxyServer/live555ProxyServer.cpp	2019-02-03 07:53:46.000000000 +0100
-+++ live555/live/proxyServer/live555ProxyServer.cpp	2019-02-25 22:24:06.409809206 +0100
+diff -Naur ../live/liveMedia/RTCP.cpp live/liveMedia/RTCP.cpp
+--- ../live/liveMedia/RTCP.cpp	2019-02-27 09:50:22.000000000 +0100
++++ live/liveMedia/RTCP.cpp	2019-03-04 10:37:14.905726566 +0100
+@@ -117,7 +117,7 @@
+     return (double) (timeNow.tv_sec + timeNow.tv_usec/1000000.0);
+ }
+ 
+-static unsigned const maxRTCPPacketSize = 1456;
++static unsigned const maxRTCPPacketSize = 100000;
+ 	// bytes (1500, minus some allowance for IP, UDP, UMTP headers)
+ static unsigned const preferredRTCPPacketSize = 1000; // bytes
+ 
+diff -Naur ../live/proxyServer/live555ProxyServer.cpp live/proxyServer/live555ProxyServer.cpp
+--- ../live/proxyServer/live555ProxyServer.cpp	2019-02-27 09:50:22.000000000 +0100
++++ live/proxyServer/live555ProxyServer.cpp	2019-03-04 09:45:34.691137767 +0100
 @@ -58,7 +58,7 @@
  int main(int argc, char** argv) {
    // Increase the maximum size of video frames that we can 'proxy' without truncation.
